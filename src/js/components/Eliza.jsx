@@ -29,7 +29,6 @@ import PluginMountPoints from "../plugin/shared/PluginMountPoints";
 
 import tabs from "../constants/tabs";
 
-
 var Eliza = React.createClass({
   displayName: "Eliza",
 

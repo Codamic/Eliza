@@ -37,7 +37,7 @@ var files = {
   mainLess: "main",
   mainCssDist: "main",
   mainLessRtl: "rtl/main",
-  mainCssDistRtl: "rtl/main",
+  mainCssDistRtl: "rtl-main",
 
   index: "index.html",
   indexFa: "index-fa.html",
@@ -171,7 +171,7 @@ gulp.task("webpack", function (callback) {
 gulp.task("less", function () {
   return gulp.src(dirs.styles + "/" + files.mainLess + ".less")
     .pipe(less({
-      paths: [dirs.stylesRtl] // @import paths
+      paths: [dirs.styles] // @import paths
     }))
     .pipe(autoprefixer())
     .pipe(gulp.dest(dirs.dist))
@@ -181,7 +181,7 @@ gulp.task("less", function () {
 gulp.task("less-rtl", function () {
   return gulp.src(dirs.styles + "/" + files.mainLessRtl + ".less")
     .pipe(less({
-      paths: [dirs.styles] // @import paths
+      paths: [dirs.styleRtl] // @import paths
     }))
     .pipe(autoprefixer())
     .pipe(gulp.dest(dirs.dist))
@@ -290,6 +290,6 @@ var tasks = [
 ];
 
 if (process.env.GULP_ENV === "production") {
-  tasks.push("minify-css", "minify-js", "replace-js-strings");
+  tasks.push("minify-css", "minify-css-rtl", "minify-js", "replace-js-strings");
 }
 gulp.task("default", tasks);
