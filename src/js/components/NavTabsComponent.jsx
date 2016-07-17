@@ -4,6 +4,8 @@ import React from "react/addons";
 import DeploymentEvents from "../events/DeploymentEvents";
 import DeploymentStore from "../stores/DeploymentStore";
 
+import t from "../config/i18n";
+
 var NavTabsComponent = React.createClass({
   displayName: "NavTabsComponent",
 
@@ -61,7 +63,7 @@ var NavTabsComponent = React.createClass({
       return (
         <li className={tabClassSet} key={tab.id}>
           <a href={"#" + tab.id}>
-            {tab.text}
+            {t(tab.text)}
           </a>
           {this.getBadge(tab)}
         </li>

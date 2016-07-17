@@ -6,18 +6,18 @@
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 300;
-  src: local('Source Sans Pro Regular'),
-       local('SourceSansPro-Regular'),
-       url('fonts/Yekan.woff') format('woff');
+  src: local('Yekan'),
+       local('Yekan'),
+       url('/fonts/Yekan.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: bold;
-  src: local('Source Sans Pro Bold'),
-  local('SourceSansPro-Bold'),
-  url('fonts/Yekan.woff') format('woff');
+  src: local('Yekan'),
+  local('Yekan'),
+  url('/fonts/Yekan.woff') format('woff');
 }
 
 body {
@@ -27,6 +27,11 @@ body {
   color: @black-haze;
   // Overwrite default bootstrap line height
   line-height: @base-line-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family:
+    'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 code {

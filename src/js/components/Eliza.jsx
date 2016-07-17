@@ -27,7 +27,7 @@ import PluginStore from "../stores/PluginStore";
 import PluginEvents from "../events/PluginEvents";
 import PluginMountPoints from "../plugin/shared/PluginMountPoints";
 
-import i18n from "../config/i18n";
+// import t from "../config/i18n";
 
 import tabs from "../constants/tabs";
 
@@ -290,7 +290,6 @@ var Eliza = React.createClass({
 
     return (
       <div>
-        <h1 id="sss">{i18n.t("applications")}</h1>
         <nav className="navbar navbar-inverse navbar-static-top"
             role="navigation">
           <div className="container-fluid">
