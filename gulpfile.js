@@ -26,6 +26,7 @@ var dirs = {
   img: "./src/img",
   imgDist: "img",
   sourceSansPro: "./node_modules/source-sans-pro/WOFF/OTF",
+  yekan: "./src/fonts/",
   ionicons: "./node_modules/ionicons/fonts",
   fontsDist: "fonts",
   release: "./release"
@@ -43,6 +44,7 @@ var files = {
   indexFa: "index-fa.html",
   sourceSansPro: "SourceSansPro-Regular.otf.woff",
   sourceSansProBold: "SourceSansPro-Bold.otf.woff",
+  yekan: 'Yekan.woff',
   eslintRc: "./.eslintrc"
 };
 
@@ -120,7 +122,7 @@ var webpackConfig = {
 if (process.env.NOTIFY === "true") {
   webpackConfig.plugins.push(new WebpackNotifierPlugin({
     alwaysNotify: true,
-    title: "Marathon UI - " + packageInfo.version
+    title: "Eliza - " + packageInfo.version
   }));
 }
 
@@ -179,12 +181,12 @@ gulp.task("less", function () {
 });
 
 gulp.task("less-rtl", function () {
-  return gulp.src(dirs.styles + "/" + files.mainLessRtl + ".less")
+  return gulp.src(dirs.styles + "/rtl/" + files.mainLess + ".less")
     .pipe(less({
       paths: [dirs.styleRtl] // @import paths
     }))
     .pipe(autoprefixer())
-    .pipe(gulp.dest(dirs.dist))
+    .pipe(gulp.dest(dirs.dist + '/rtl/'))
     .pipe(browserSync.stream());
 });
 
@@ -223,7 +225,8 @@ gulp.task("fonts", function () {
   return gulp.src([
     dirs.ionicons + "/**/*.*",
     dirs.sourceSansPro + "/" + files.sourceSansPro,
-    dirs.sourceSansPro + "/" + files.sourceSansProBold
+    dirs.sourceSansPro + "/" + files.sourceSansProBold,
+    dirs.yekan         + "/" + files.yekan
   ]).pipe(gulp.dest(dirs.dist + "/" + dirs.fontsDist));
 });
 
@@ -253,7 +256,7 @@ gulp.task("browsersync", function () {
 });
 
 gulp.task("watch", function () {
-  gulp.watch(dirs.styles + "/**/*", ["less"]);
+  gulp.watch(dirs.styles + "/**/*", ["less", "less-rtl"]);
   gulp.watch(dirs.img + "/**/*.*", ["images"]);
   gulp.watch(dirs.fonts + "/**/*.*", ["fonts"]);
 });

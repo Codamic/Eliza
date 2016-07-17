@@ -5,6 +5,7 @@ import AppPageComponent from "./components/AppPageComponent";
 import PageNotFoundComponent from "./components/PageNotFoundComponent";
 import TabPanesComponent from "./components/TabPanesComponent";
 import Eliza from "./components/Eliza";
+import I18n  from "./config/i18n";
 
 var routes = (
   <Route name="home" path="/" handler={Eliza}>
