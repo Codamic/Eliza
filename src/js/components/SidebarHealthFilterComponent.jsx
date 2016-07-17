@@ -8,6 +8,8 @@ import HealthStatus from "../constants/HealthStatus";
 
 import QueryParamsMixin from "../mixins/QueryParamsMixin";
 
+import t from "../config/i18n";
+
 var healthNameMapping = {
   [HealthStatus.HEALTHY]: "Healthy",
   [HealthStatus.UNHEALTHY]: "Unhealthy",
@@ -116,7 +118,7 @@ var SidebarHealthFilterComponent = React.createClass({
     var state = this.state;
 
     return Object.keys(healthNameMapping).map((key, i) => {
-      var optionText = healthNameMapping[key];
+      var optionText = t(healthNameMapping[key]);
 
       var checkboxProps = {
         type: "checkbox",

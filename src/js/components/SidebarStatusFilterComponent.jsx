@@ -10,6 +10,8 @@ import QueryParamsMixin from "../mixins/QueryParamsMixin";
 import {statusNameMapping} from "../constants/LabelMapping";
 import {statusFilters} from "../constants/LabelMapping";
 
+import t from "../config/i18n";
+
 var SidebarStatusFilterComponent = React.createClass({
   displayName: "SidebarStatusFilterComponent",
 
@@ -109,7 +111,7 @@ var SidebarStatusFilterComponent = React.createClass({
     var state = this.state;
 
     return Object.keys(statusFilters).map((key, i) => {
-      var optionText = statusNameMapping[key];
+      var optionText = t(statusNameMapping[key]);
 
       var checkboxProps = {
         type: "checkbox",

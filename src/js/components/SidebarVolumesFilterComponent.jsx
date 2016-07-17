@@ -7,6 +7,8 @@ import FilterTypes from "../constants/FilterTypes";
 
 import QueryParamsMixin from "../mixins/QueryParamsMixin";
 
+import t from "../config/i18n";
+
 var SidebarVolumesFilterComponent = React.createClass({
   displayName: "SidebarVolumesFilterComponent",
 
@@ -72,14 +74,14 @@ var SidebarVolumesFilterComponent = React.createClass({
     return (
       <div>
         <div className="flex-row">
-          <h3 className="small-caps">Resources</h3>
+          <h3 className="small-caps">{t("Resources")}</h3>
         </div>
         <ul className="list-group checked-list-box filters">
           <li className="checkbox">
             <input {...checkboxProps}
               onChange={this.handleChange} />
             <label htmlFor={checkboxProps.id} className={labelClassName}>
-              Volumes
+              {t("Volumes")}
               {this.getVolumesBadge()}
             </label>
           </li>

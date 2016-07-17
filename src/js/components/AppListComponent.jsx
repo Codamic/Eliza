@@ -23,6 +23,8 @@ import QueryParamsMixin from "../mixins/QueryParamsMixin";
 import Util from "../helpers/Util";
 import SortUtil from "../helpers/SortUtil";
 
+import t from "../config/i18n";
+
 function getInitialFilterCounts(object) {
   return Object.values(object).reduce(function (memo, name) {
     memo[name] = 0;
@@ -381,8 +383,8 @@ var AppListComponent = React.createClass({
     }
 
     if (pageIsLoading) {
-      let message = "Please wait while applications are being retrieved";
-      let title = "Loading Applications...";
+      let message = t("Please wait while applications are being retrieved");
+      let title = t("Loading Applications...");
 
       return (
         <CenteredInlineDialogComponent>
@@ -396,17 +398,17 @@ var AppListComponent = React.createClass({
     }
 
     if (pageHasNoRunningApps) {
-      let message = "Do more with Eliza by creating and organizing " +
-        "your applications.";
+      let message = t("Do more with Eliza by creating and organizing " +
+        "your applications.");
       return (
         <CenteredInlineDialogComponent additionalClasses="muted"
-            title="No Applications Created"
+            title={t("No Applications Created")}
             message={message}>
           <Link className="btn btn-lg btn-success"
               activeClassName=""
               to={path}
               query={newAppModalQuery}>
-            Create Application
+            {t("Create Application")}
           </Link>
         </CenteredInlineDialogComponent>
       );
@@ -414,7 +416,7 @@ var AppListComponent = React.createClass({
 
     if (pageHasNoMatchingApps) {
       return (
-        <CenteredInlineDialogComponent title="No Applications Found"
+        <CenteredInlineDialogComponent title={t("No Applications Found")}
             message="No applications match your criteria.">
           <Link className="btn btn-lg btn-success"
               to="apps">

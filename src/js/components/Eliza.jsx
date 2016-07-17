@@ -305,7 +305,7 @@ var Eliza = React.createClass({
             <div className="nav navbar-nav navbar-right">
               <AppListFilterComponent />
               <LangButtonComponent />
-              <HelpMenuComponent />
+
               <PluginMountPointComponent
                 placeId={PluginMountPoints.NAVBAR_TOP_RIGHT} />
             </div>
@@ -319,4 +319,5 @@ var Eliza = React.createClass({
   }
 });
 
+// <HelpMenuComponent />
 export default Eliza;

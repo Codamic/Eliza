@@ -1,11 +1,15 @@
 import React from "react/addons";
 import {Link} from "react-router";
 
+import config from "../config/config";
+
 import classNames from "classnames";
 
 import PopoverComponent from "./PopoverComponent";
 
 import OnClickOutsideMixin from "react-onclickoutside";
+
+import t from "../config/i18n";
 
 var LangButtonComponent = React.createClass({
   displayName: "LangButtonComponent",
@@ -49,20 +53,13 @@ var LangButtonComponent = React.createClass({
             className="help-menu-dropdown">
           <ul className="dropdown-menu">
             <li>
-              <Link to={router.getCurrentPathname()}
-                  query={{modal: "about"}}>
-                About
-              </Link>
-            </li>
-            <li>
-              <a href="../help" target="_blank">
-                API Reference
+              <a href={config.enUrl}>
+                {t("English")}
               </a>
             </li>
             <li>
-              <a href="https://mesosphere.github.io/marathon/docs/"
-                  target="_blank">
-                Documentation
+              <a href={config.faUrl}>
+                {t("فارسی")}
               </a>
             </li>
           </ul>

@@ -14,6 +14,8 @@ import QueryParamsMixin from "../mixins/QueryParamsMixin";
 import PluginMountPointComponent from "../components/PluginMountPointComponent";
 import PluginMountPoints from "../plugin/shared/PluginMountPoints";
 
+import t from "../config/i18n";
+
 var SidebarComponent = React.createClass({
   displayName: "SidebarComponent",
 
@@ -31,12 +33,12 @@ var SidebarComponent = React.createClass({
     return (
       <nav className="sidebar">
         <div className="flex-row">
-          <h3 className="small-caps">Status</h3>
+          <h3 className="small-caps">{t("Status")}</h3>
           {this.getClearLinkForFilter(FilterTypes.STATUS)}
         </div>
         <SidebarStatusFilterComponent />
         <div className="flex-row">
-          <h3 className="small-caps">Health</h3>
+          <h3 className="small-caps">{t("Health")}</h3>
           {this.getClearLinkForFilter(FilterTypes.HEALTH)}
         </div>
         <SidebarHealthFilterComponent />
