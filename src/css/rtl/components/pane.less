@@ -22,9 +22,9 @@
       .contextual-bar {
         display: flex;
         padding: @base-spacing-unit*2
-          0
           @base-spacing-unit*2
-          @base-spacing-unit*2;
+          @base-spacing-unit*2
+          0;
 
         .app-list-controls {
           display: flex;
@@ -57,7 +57,7 @@
     nav.sidebar {
       background: @sidebar-bg-color;
       min-height: 100vh;
-      margin: 0 0 0 -@base-spacing-unit*2;
+      margin: 0 -@base-spacing-unit*2 0 0;
       padding: @base-spacing-unit*2;
       width: @sidebar-width;
 
@@ -90,4 +90,3 @@
     }
   }
 }
-

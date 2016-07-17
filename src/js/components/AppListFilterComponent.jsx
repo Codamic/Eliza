@@ -6,6 +6,8 @@ import FilterTypes from "../constants/FilterTypes";
 
 import QueryParamsMixin from "../mixins/QueryParamsMixin";
 
+import t from "../config/i18n";
+
 var AppListFilterComponent = React.createClass({
   displayName: "AppListFilterComponent",
 
@@ -145,7 +147,7 @@ var AppListFilterComponent = React.createClass({
           onChange={this.handleFilterTextChange}
           onFocus={this.focusInputGroup}
           onKeyDown={this.handleKeyDown}
-          placeholder="Search all applications"
+          placeholder={t("Search all applications")}
           type="text"
           ref="filterText"
           value={state.filterText} />

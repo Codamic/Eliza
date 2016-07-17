@@ -14,6 +14,7 @@ import GroupModalComponent from "../components/modals/GroupModalComponent";
 import HelpModalComponent from "../components/modals/HelpModalComponent";
 import NavTabsComponent from "../components/NavTabsComponent";
 import HelpMenuComponent from "./HelpMenuComponent";
+import LangButtonComponent from "./LangButtonComponent";
 import PluginMountPointComponent from "../components/PluginMountPointComponent";
 
 import AppsActions from "../actions/AppsActions";
@@ -303,6 +304,7 @@ var Eliza = React.createClass({
               tabs={tabs} />
             <div className="nav navbar-nav navbar-right">
               <AppListFilterComponent />
+              <LangButtonComponent />
               <HelpMenuComponent />
               <PluginMountPointComponent
                 placeId={PluginMountPoints.NAVBAR_TOP_RIGHT} />
