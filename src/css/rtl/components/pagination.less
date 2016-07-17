@@ -1,0 +1,34 @@
+/* ==============
+ * Pagination
+ * ==============
+ */
+.pagination-unstyled {
+  margin: 0;
+}
+
+.item-numbers {
+  padding: 5px 10px;
+  margin: 0 0 10px;
+}
+
+.pagination > li:first-child > button {
+  margin-right: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.pagination > li:last-child > button {
+  margin-left: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.pagination > .disabled > button,
+.pagination > .disabled > button:hover,
+.pagination > .disabled > button:focus {
+  background-color: @btn-default-active-bg-color;
+  border-color: @btn-default-active-bg-color;
+  color: @btn-default-active-text-color;
+}
+

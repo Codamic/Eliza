@@ -1,0 +1,49 @@
+/* =============
+ * Help Menu
+ * =============
+ */
+.help-menu {
+  margin: 0;
+  padding: @base-spacing-unit*2 @base-spacing-unit*2;
+  cursor: pointer;
+  color: @white;
+  background-position: center right;
+  line-height: 1;
+  opacity: .4;
+  white-space: nowrap;
+
+  .caret {
+    margin-right: @horizontal-spacing-unit;
+  }
+
+  &.active,
+  &:hover {
+    opacity: 1;
+  }
+
+  &-dropdown.popover.bottom, &-dropdown.popover.default {
+    margin: 0;
+
+    .content {
+      background-color: transparent;
+      border-radius: 0;
+      min-width: auto;
+      padding: 0;
+      right: 100%;
+      transform: translate(-90%, 10%);
+
+      &:before, &:after {
+        display: none;
+      }
+    }
+
+    .dropdown-menu {
+      left: @base-spacing-unit*2;
+      transform: none;
+      position: relative;
+      border: none;
+      display: block;
+    }
+  }
+}
+

@@ -1,0 +1,110 @@
+/* ==============
+ * Labels
+ * ==============
+ */
+.labels {
+  display: inline-block;
+  position: absolute;
+
+  .badge, .more {
+    display: inline-block;
+    position: fixed;
+    transform: translateX(-1vw);
+    visibility: hidden;
+    white-space: nowrap;
+    margin-right: @horizontal-spacing-unit;
+    background-color: @sidebar-bg-color;
+    border-radius: @base-spacing-unit*2;
+    color: @navbar-inactive-color;
+    line-height: inherit;
+    max-width: @horizontal-spacing-unit*64;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.visible {
+      position: relative;
+      transform: translateX(0);
+      visibility: inherit;
+    }
+  }
+
+  .labels-dropdown {
+    background-color: @navbar-bg-color;
+    right: 100%;
+    margin-right: @base-spacing-unit*2;
+    margin-top: -@base-spacing-unit*2;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+
+    &.visible {
+      display: block;
+    }
+
+    h5 {
+      color: @table-text-color;
+      padding: 0 0 @base-spacing-unit*2;
+      margin: 0;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: block;
+        margin: 0 0 @base-spacing-unit 0;
+
+        &:last-child {
+          margin: 0;
+        }
+
+        .badge {
+          margin: 0;
+        }
+      }
+    }
+
+    &.popover {
+
+      & .content {
+        right: 100%;
+        transform: none;
+        margin-top: -@base-spacing-unit*2;
+        margin-right: @base-spacing-unit*2;
+
+        &:before {
+          border-left-color: @navbar-bg-color;
+          border-top-color: transparent;
+          left: 100%;
+          right: auto;
+          top: @base-spacing-unit*2;
+          content: " ";
+        }
+      }
+
+      &.default .content {
+        top: 0;
+        bottom: auto;
+      }
+
+      &.bottom .content:after {
+        display: none;
+      }
+
+      &.top .content{
+        margin-bottom: -@base-spacing-unit*4;
+
+        &:before {
+          bottom: @base-spacing-unit*2;
+          top: auto;
+        }
+      }
+    }
+  }
+}
+
+.more:hover {
+  background-color: @btn-default-active-bg-color;
+}
+

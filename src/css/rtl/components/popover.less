@@ -1,0 +1,56 @@
+.popover {
+
+  border: none;
+  display: block;
+  margin: 0;
+  max-width: none;
+  padding: 0;
+  position: relative;
+
+  .content {
+    background-color: @navbar-bg-color;
+    border-radius: @popover-border-radius;
+    min-width: @popover-width;
+    padding: @base-spacing-unit*2;
+    right:50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 1;
+  }
+
+  &.default, &.top, &.bottom, &.right {
+    margin: 0;
+
+    .content:before, .content:after {
+      border: solid transparent;
+      border-width: @base-spacing-unit;
+      right: 50%;
+      height: 0;
+      margin-right: -@base-spacing-unit;
+      pointer-events: none;
+      position: absolute;
+      width: 0;
+    }
+  }
+
+  &.default .content, &.top .content {
+    bottom: 0;
+
+    &:before {
+      border-top-color: @navbar-bg-color;
+      top: 100%;
+      content: " ";
+    }
+  }
+
+  &.bottom .content {
+    top: 0;
+
+    &:after {
+      border-bottom-color: @navbar-bg-color;
+      bottom: 100%;
+      content: " ";
+    }
+  }
+}
+

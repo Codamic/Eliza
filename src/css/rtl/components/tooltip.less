@@ -1,0 +1,42 @@
+
+.tooltip.popover {
+  opacity: 1;
+
+  // Overwrite default bootstrap styling
+  &::after {
+    content: none;
+  }
+
+  .content {
+    color: @text-color-muted;
+    pointer-events: auto;
+    text-align: center;
+  }
+
+  &.default, &.top {
+    padding: inherit;
+
+    .content {
+      bottom: @base-spacing-unit*3;
+    }
+  }
+
+  &.bottom {
+    padding: inherit;
+
+    .content {
+      top: @base-spacing-unit*3;
+    }
+  }
+
+  a {
+    color: @tooltip-link-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+

@@ -1,0 +1,149 @@
+/* ==============
+ * Form
+ * ==============
+ */
+.control-label {
+  font-weight: normal;
+}
+
+.form-control {
+  background: @black-haze;
+  border-color: @shuttle-gray;
+  color: @chicago;
+  box-shadow: inset 0 4px 4px fade(@black, 20%);
+
+  &.form-control-inverse {
+    background: transparent;
+    border-color: @form-control-inverse-border-color;
+    box-shadow: none;
+    &:focus {
+      background-color: fade(@form-control-inverse-border-color-focus,10%);
+      border-color: @form-control-inverse-border-color-focus;
+    }
+
+    &[disabled] {
+      background-color: fade(@form-control-inverse-border-color, 20%);
+      border-color: fade(@form-control-inverse-border-color, 40%);
+      color: @ghost;
+    }
+  }
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  height: @base-spacing-unit*4;
+  margin: 0;
+  padding: 0;
+
+  /* Override Bootstrap's default on siblings */
+  &+.checkbox {
+    margin: 0;
+  }
+
+  input[type="checkbox"]{
+    margin: 0;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  input[type="checkbox"]:checked + label::after {
+    color: @white;
+    content: "\f383";
+    font-family: "Ionicons";
+    font-size: 12px;
+    line-height: @base-spacing-unit*2;
+    padding: 0 3px 0 0;
+  }
+
+  input[type="checkbox"]:checked + label::before {
+    background-color: @brand-primary;
+    border-color: @brand-primary;
+  }
+
+  input[type="checkbox"]:focus + label::before {
+    outline: none;
+  }
+
+  label {
+    display: inline-block;
+    margin: 0 0 0 @horizontal-spacing-unit*2;
+    position: relative;
+    vertical-align: middle;
+  }
+
+  label::after, label::before {
+    background-color: transparent;
+    border-radius: 2px;
+    bottom: 0;
+    display: inline-block;
+    height: @base-spacing-unit*2;
+    right: -@horizontal-spacing-unit*4;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    width: @base-spacing-unit*2;
+  }
+
+  label::before {
+    border: 1px solid @btn-default-text-color;
+    content: "";
+    transition: border @transition-fast ease-in-out,
+      color @transition-fast ease-in-out;
+  }
+}
+
+.checkbox-form-group {
+  position: relative;
+
+  input[type=checkbox], input[type=radio] {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline;
+    height: auto;
+    margin-top: 0.2em;
+    width: auto;
+    box-shadow: none;
+  }
+
+  label {
+    padding: 0 18px 0 0;
+  }
+}
+
+.help-block {
+  color: @loblolly;
+}
+
+.has-error {
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline {
+    color: @text-color-danger-light;
+  }
+
+  .form-control:focus {
+    background-color: fade(@text-color-danger-light,10%);
+    border-color: @text-color-danger-light;
+    box-shadow: none;
+  }
+
+  a {
+    color: currentColor;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: inherit;
+      color: darken(@text-color-danger-light,30);
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: @base-spacing-unit*2;
+}
+

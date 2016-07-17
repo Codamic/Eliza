@@ -1,0 +1,60 @@
+/* ==============
+ * Duplicable row
+ * ==============
+ */
+.duplicable-row {
+  .controls {
+    margin: 0 0.2em 1em 0;
+    min-width: @base-spacing-unit*10;
+
+    .btn {
+      display: inline-block;
+      position: relative;
+      height: 35px;
+      width: 32px;
+      margin-right: 0.2em;
+
+      .icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 1;
+        transition: opacity 0.3s ease-out;
+      }
+      .icon-hover {
+        opacity: 0;
+      }
+
+      &:hover {
+        .icon {
+          opacity: 0;
+        }
+        .icon-hover {
+          opacity: 1;
+        }
+      }
+      &:focus {
+        outline: none;
+      }
+      &.add {
+        color: @brand-primary;
+      }
+      &.remove {
+        color: @manatee;
+        &.disabled {
+          opacity: 0;
+        }
+      }
+    }
+    .icon {
+      pointer-events: none;
+      line-height: 1em;
+      font-size: 2.6em;
+    }
+  }
+}
+
+.row.duplicable-row {
+  margin-bottom: @base-spacing-unit*2;
+}
+

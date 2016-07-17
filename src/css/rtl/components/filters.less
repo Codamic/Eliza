@@ -1,0 +1,50 @@
+.filters.checked-list-box {
+  .checkbox {
+    input[type="checkbox"] + label::before {
+      border-color: @table-header-color;
+    }
+
+    input[type="checkbox"]:checked {
+      & + label {
+        color: @btn-default-text-color;
+
+        &::before {
+          border-color: @brand-primary;
+        }
+      }
+    }
+  }
+
+  label {
+    color: @breadcrumb-text-color;
+    display: inline-block;
+    width: 100%;
+
+    &.text-muted {
+      color: @filter-text-muted-color;
+    }
+  }
+
+  .badge {
+    line-height: @base-line-height;
+    left:0;
+  }
+
+  li:hover {
+    &.checkbox {
+      input[type="checkbox"] + label::before {
+        border-color: @btn-default-border-color;
+        transition: initial;
+      }
+
+      input[type="checkbox"]:checked + label::before {
+       border-color: @brand-primary;
+      }
+    }
+
+    & > label {
+      color: @btn-default-text-color;
+    }
+  }
+}
+

@@ -1,0 +1,153 @@
+/* ==============
+ * Icons - Styles borrowed from mesosphere/canvas
+ * ==============
+ */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  // Temporary icon styling as discussed in #2392 will be removed
+  // if we have the SVGs in place.
+  &.running {
+    background-image: url("img/icons/icon-mini-running-color.png");
+    background-size: contain;
+  }
+
+  &.deploying {
+    background-image: url("img/icons/icon-mini-deploying-color.png");
+    background-size: contain;
+  }
+
+  &.suspended {
+    background-image: url("img/icons/icon-mini-suspended-color.png");
+    background-size: contain;
+  }
+
+  &.delayed {
+    background-image: url("img/icons/icon-mini-delayed-color.png");
+    background-size: contain;
+  }
+
+  &.waiting, &.waiting-for-user-action {
+    background-image: url("img/icons/icon-mini-waiting-color.png");
+    background-size: contain;
+  }
+
+  &.help {
+    background-image: url("img/icons/icon-help.svg");
+    background-size: contain;
+  }
+
+  &.gear {
+    background-image: url("img/icons/icon-mini-gear.svg");
+    background-size: contain;
+  }
+
+  &.file {
+    background-image: url("img/icons/icon-mini-file.svg");
+    background-size: contain;
+  }
+
+  &.warning {
+    background-image: url("img/icons/icon-warning.svg");
+    background-size: contain;
+  }
+
+  &.warning-danger {
+    background-image: url("img/icons/icon-warning-red.svg");
+    background-size: contain;
+    margin-top: @base-spacing-unit*-0.5;
+    margin-left: @base-spacing-unit*0.5;
+  }
+
+  &.dots {
+    background-image: url("img/icons/icon-mini-ellipse-white.svg");
+    background-size: contain;
+  }
+
+  &.loading {
+    background-image: url("img/icons/icon-loading.svg");
+    background-size: contain;
+  }
+
+  &.group {
+    background-image: url("img/icons/icon-small-group.svg");
+    background-size: contain;
+  }
+
+  &.app {
+    background-image: url("img/icons/icon-small-app.svg");
+    background-size: contain;
+  }
+
+  &.icon-xs {
+    font-size: floor(@icon-xs-height*@icon-xs-scale);
+    line-height: floor(@icon-xs-height*@icon-xs-scale);
+    margin-top: floor(@font-size-icon - @icon-xs-height)*-1;
+    width: floor(@icon-xs-width*@icon-xs-scale);
+    height: floor(@icon-xs-height*@icon-xs-scale);
+
+    &:before {
+      line-height: floor(floor(@icon-xs-height*@icon-xs-scale)
+        + (@icon-xs-offset*@icon-xs-scale));
+
+    }
+  }
+
+  &.icon-mini {
+    font-size: floor(@icon-mini-height*@icon-mini-scale);
+    line-height: floor(@icon-mini-height*@icon-mini-scale);
+    width: floor(@icon-mini-width*@icon-mini-scale);
+    height: floor(@icon-mini-height*@icon-mini-scale);
+
+    &:before {
+      line-height: floor(floor(@icon-mini-height*@icon-mini-scale)
+        + (@icon-mini-offset*@icon-mini-scale));
+
+    }
+  }
+
+  &.icon-small {
+    font-size: floor(@icon-small-height*@icon-small-scale);
+    line-height: floor(@icon-small-height*@icon-small-scale);
+    width: floor(@icon-small-width*@icon-small-scale);
+    height: floor(@icon-small-height*@icon-small-scale);
+
+    &:before {
+      line-height: floor(floor(@icon-small-height*@icon-small-scale)
+        + (@icon-small-offset*@icon-small-scale));
+    }
+  }
+
+  &.icon-medium {
+    font-size: floor(@icon-medium-height*@icon-medium-scale);
+    line-height: floor(@icon-medium-height*@icon-medium-scale);
+    width: floor(@icon-medium-width*@icon-medium-scale);
+    height: floor(@icon-medium-height*@icon-medium-scale);
+
+    &:before {
+      line-height: floor(floor(@icon-medium-height*@icon-medium-scale)
+        + (@icon-medium-offset*@icon-medium-scale));
+    }
+
+  }
+
+  &.icon-large {
+    font-size: floor(@icon-large-height*@icon-large-scale);
+    line-height: floor(@icon-large-height*@icon-large-scale);
+    width: floor(@icon-large-width*@icon-large-scale);
+    height: floor(@icon-large-height*@icon-large-scale);
+
+    &:before {
+      line-height: floor(floor(@icon-large-height*@icon-large-scale)
+        + (@icon-large-offset*@icon-large-scale));
+    }
+  }
+}
+

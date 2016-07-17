@@ -1,0 +1,75 @@
+/* ==============
+ * Health bar
+ * ==============
+ */
+.progress {
+  height: 10px;
+  border-radius: 3px;
+}
+
+.progress-bar {
+  line-height: 10px;
+}
+
+.progress-bar-info {
+  background-color: @shuttle-gray;
+}
+
+.health-bar-column {
+  vertical-align: middle;
+}
+
+.health-bar {
+  width: 100%;
+  display: inline-block;
+  height: @base-spacing-unit;
+  margin-bottom: 2px;
+  background-color: @health-bar-inner-color;
+  transform: translate3d(0, 0, 0);
+
+  .loading-bar {
+    position: relative;
+    top: 50%;
+    right: 50%;
+    max-width: none;
+    margin-top: @base-spacing-unit*-0.5;
+    margin-right: @health-bar-width*-0.5;
+  }
+}
+.health-bar-column .health-bar {
+  max-width: @health-bar-width;
+}
+
+.health-bar-inner {
+  border-right: 1px solid @health-bar-inner-color;
+}
+
+.health-bar-healthy {
+  background-color: @task-health-healthy-color;
+}
+
+.health-bar-unhealthy {
+  background-color: @task-health-unhealthy-color;
+}
+
+.health-bar-unknown {
+  background-color: @task-health-unknown-color;
+}
+
+.health-bar-staged {
+  background-color: @task-health-staged-color;
+}
+
+.health-bar-over-capacity {
+  background-color: @task-health-over-capacity-color;
+}
+
+.health-bar-unscheduled {
+  background-color: @task-health-unscheduled-color;
+}
+
+.health-bar-running {
+  background-color: @task-health-running-color;
+}
+
+
