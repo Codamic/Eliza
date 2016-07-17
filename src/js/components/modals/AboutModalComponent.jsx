@@ -53,13 +53,13 @@ var AboutModalComponent = React.createClass({
   render: function () {
     var marathonConfig = this.state.info.marathon_config;
     var zookeeperConfig = this.state.info.zookeeper_config;
-    var logoPath = config.rootUrl + "img/marathon-logo.png";
+    var logoPath = config.rootUrl + "img/eliza.png";
     return (
       <ModalComponent onDestroy={this.props.onDestroy}
           size="lg">
         <div className="modal-header modal-header-blend">
           <h2 className="modal-title" title={`UI Version ${config.version}`}>
-            <img width="160" height="27" alt="Marathon" src={logoPath} />
+            <img width="160" height="27" alt="Eliza" src={logoPath} />
             <small className="text-muted" style={{"marginLeft": "1em"}}>
               Version {this.getInfo("version")}
             </small>

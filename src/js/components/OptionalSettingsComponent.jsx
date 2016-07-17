@@ -32,7 +32,7 @@ var OptionalSettingsComponent = React.createClass({
     var fieldIds = OptionalSettingsComponent.fieldIds;
 
     var acceptedResourceRolesHelp = "Comma-separated list of resource roles. " +
-      "Marathon considers only resource offers with roles in this list for " +
+      "Eliza considers only resource offers with roles in this list for " +
       "launching tasks of this app.";
     var contraintsHelp = "Comma-separated list of valid constraints. " +
       "Valid constraint format is \"field:operator[:value]\".";

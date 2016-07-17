@@ -22,6 +22,7 @@ var dirs = {
   js: "./src/js",
   dist: "dist",
   styles: "./src/css",
+  stylesRtl: "./src/css/rtl",
   img: "./src/img",
   imgDist: "img",
   sourceSansPro: "./node_modules/source-sans-pro/WOFF/OTF",
@@ -35,7 +36,11 @@ var files = {
   mainJsDist: "main",
   mainLess: "main",
   mainCssDist: "main",
+  mainLessRtl: "rtl/main",
+  mainCssDistRtl: "rtl/main",
+
   index: "index.html",
+  indexFa: "index-fa.html",
   sourceSansPro: "SourceSansPro-Regular.otf.woff",
   sourceSansProBold: "SourceSansPro-Bold.otf.woff",
   eslintRc: "./.eslintrc"
@@ -166,6 +171,16 @@ gulp.task("webpack", function (callback) {
 gulp.task("less", function () {
   return gulp.src(dirs.styles + "/" + files.mainLess + ".less")
     .pipe(less({
+      paths: [dirs.stylesRtl] // @import paths
+    }))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest(dirs.dist))
+    .pipe(browserSync.stream());
+});
+
+gulp.task("less-rtl", function () {
+  return gulp.src(dirs.styles + "/" + files.mainLessRtl + ".less")
+    .pipe(less({
       paths: [dirs.styles] // @import paths
     }))
     .pipe(autoprefixer())
@@ -175,6 +190,12 @@ gulp.task("less", function () {
 
 gulp.task("minify-css", ["less"], function () {
   return gulp.src(dirs.dist + "/" + files.mainCssDist + ".css")
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(dirs.dist));
+});
+
+gulp.task("minify-css-rtl", ["less"], function () {
+  return gulp.src(dirs.dist + "/" + files.mainCssDistRTL + ".css")
     .pipe(minifyCSS())
     .pipe(gulp.dest(dirs.dist));
 });
@@ -208,6 +229,11 @@ gulp.task("fonts", function () {
 
 gulp.task("index", function () {
   return gulp.src(dirs.src + "/" + files.index)
+    .pipe(gulp.dest(dirs.dist));
+});
+
+gulp.task("indexFa", function () {
+  return gulp.src(dirs.src + "/" + files.indexFa)
     .pipe(gulp.dest(dirs.dist));
 });
 
@@ -256,9 +282,11 @@ var tasks = [
   "version-check",
   "webpack",
   "less",
+  "less-rtl",
   "images",
   "fonts",
-  "index"
+  "index",
+  "indexFa"
 ];
 
 if (process.env.GULP_ENV === "production") {

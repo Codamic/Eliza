@@ -396,7 +396,7 @@ var AppListComponent = React.createClass({
     }
 
     if (pageHasNoRunningApps) {
-      let message = "Do more with Marathon by creating and organizing " +
+      let message = "Do more with Eliza by creating and organizing " +
         "your applications.";
       return (
         <CenteredInlineDialogComponent additionalClasses="muted"

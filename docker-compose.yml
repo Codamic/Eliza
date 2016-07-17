@@ -1,10 +1,11 @@
 zookeeper:
-  image: netflixoss/exhibitor:1.5.2
+  image: jplock/zookeeper:latest
   hostname: zookeeper
   ports:
     - "2181:2181"
 mesos-master:
-  image: mesosphere/mesos-master:0.27.2-2.0.15.ubuntu1404
+  #mesosphere/mesos-master:0.27.2-2.0.15.ubuntu1404
+  image: lxsameer/mesos:0.28.2.2
   hostname: mesos-master
   entrypoint: [ "mesos-master" ]
   ports:
@@ -24,7 +25,8 @@ mesos-master:
   volumes:
     - ./resources/mesos-config:/mesos-config
 mesos-slave:
-  image: mesosphere/mesos-slave-dind:0.2.4_mesos-0.27.2_docker-1.8.2_ubuntu-14.04.4
+  #mesosphere/mesos-slave-dind:0.2.4_mesos-0.27.2_docker-1.8.2_ubuntu-14.04.4
+  image: lxsameer/mesos:0.28.2.2
   entrypoint:
     - mesos-slave
   privileged: true
@@ -46,7 +48,8 @@ mesos-slave:
     - MESOS_DOCKER_STOP_TIMEOUT=60secs
     - MESOS_RESOURCES=cpus:4;mem:1280;disk:25600;ports(*):[12000-12999]
 marathon-service:
-  image: mesosphere/marathon:latest-dev
+  #  mesosphere/marathon:latest-dev
+  image: mesoscloud/marathon:1.1.1-ubuntu-15.04
   expose:
     - "8080"
   links:
@@ -65,9 +68,9 @@ marathon-service:
     - ./resources/marathon-plugins:/plugins
     - ./resources/marathon.plugin-conf.json:/plugin-conf.json
     - ./resources/marathon.secret:/marathon.secret
-marathon-ui:
+eliza:
   image: nginx:latest
-  hostname: marathon-ui
+  hostname: eliza
   ports:
    - "8080:8080"
   links:
@@ -76,4 +79,4 @@ marathon-ui:
     - DNSDOCK_ALIAS=marathon.docker
   volumes:
     - ./dist:/usr/share/nginx/html
-    - ./resources/marathon-ui.nginx.conf:/etc/nginx/nginx.conf
+    - ./resources/eliza.nginx.conf:/etc/nginx/nginx.conf

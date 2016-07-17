@@ -4,10 +4,10 @@ import Router, {Redirect, Route, NotFoundRoute} from "react-router";
 import AppPageComponent from "./components/AppPageComponent";
 import PageNotFoundComponent from "./components/PageNotFoundComponent";
 import TabPanesComponent from "./components/TabPanesComponent";
-import Marathon from "./components/Marathon";
+import Eliza from "./components/Eliza";
 
 var routes = (
-  <Route name="home" path="/" handler={Marathon}>
+  <Route name="home" path="/" handler={Eliza}>
     <Route name="apps" path="apps" handler={TabPanesComponent} />
     <Route name="group" path="group/:groupId" handler={TabPanesComponent} />
     <Route name="app" path="apps/:appId" handler={AppPageComponent} />
@@ -25,6 +25,6 @@ var routes = (
 Router.run(routes, function (Handler, state) {
   React.render(
     <Handler state={state} />,
-    document.getElementById("marathon")
+    document.getElementById("eliza")
   );
 });

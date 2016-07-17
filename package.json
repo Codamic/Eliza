@@ -1,10 +1,10 @@
 {
-  "name": "marathon-ui",
+  "name": "eliza",
   "version": "1.2.0",
   "engines": {
     "node": "5.4.1"
   },
-  "description": "The web UI for Mesosphere's Marathon.",
+  "description": "A web UI for Marathon.",
   "main": "dist/main.js",
   "keywords": [
     "marathon",
@@ -13,7 +13,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mesosphere/marathon-ui.git"
+    "url": "git://gitlab.com/lxsameer/eliza.git"
   },
   "dependencies": {
     "babel-cli": "^6.4.0",
