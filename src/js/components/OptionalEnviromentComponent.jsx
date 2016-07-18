@@ -5,6 +5,8 @@ import DuplicableRowControls from "../components/DuplicableRowControls";
 import DuplicableRowsMixin from "../mixins/DuplicableRowsMixin";
 import FormGroupComponent from "../components/FormGroupComponent";
 
+import t from "../config/i18n";
+
 var OptionalEnvironmentComponent = React.createClass({
   displayName: "OptionalEnvironmentComponent",
 
@@ -50,7 +52,7 @@ var OptionalEnvironmentComponent = React.createClass({
           <div className="col-sm-6 add-colon">
             <FormGroupComponent
                 fieldId={`env.key.${i}`}
-                label="Key"
+                label={t("Key")}
                 value={row.key}>
               <input ref={`key${i}`} />
             </FormGroupComponent>
@@ -58,7 +60,7 @@ var OptionalEnvironmentComponent = React.createClass({
           <div className="col-sm-6">
             <FormGroupComponent
                 fieldId={`env.value.${i}`}
-                label="Value"
+                label={t("Value")}
                 value={row.value}>
               <input ref={`value${i}`} />
             </FormGroupComponent>

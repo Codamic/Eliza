@@ -29,6 +29,8 @@ import OptionalVolumesComponent
   from "../components/OptionalVolumesComponent";
 import SectionComponent from "../components/SectionComponent";
 
+import t from "../config/i18n";
+
 var AppConfigEditFormComponent = React.createClass({
   displayName: "AppConfigEditFormComponent",
 
@@ -221,10 +223,10 @@ var AppConfigEditFormComponent = React.createClass({
   },
 
   getPortsPanelTitle: function () {
-    var title = "Ports";
+    var title = t("Ports");
 
     if (this.hasVIP()) {
-      title = "Ports & Service Discovery";
+      title = t("Ports & Service Discovery");
     }
 
     return (
@@ -280,11 +282,11 @@ var AppConfigEditFormComponent = React.createClass({
             onChange={this.onMenuChange}>
           <MenuItemComponent value="general"
               className={generalMenuItemClassSet}>
-            General
+            {t("General")}
           </MenuItemComponent>
           <MenuItemComponent value="container"
               className={containerMenuItemClassSet}>
-            Docker Container
+            {t("Docker Container")}
           </MenuItemComponent>
           <MenuItemComponent value="ports"
              className={portsMenuItemClassSet}>
@@ -292,23 +294,23 @@ var AppConfigEditFormComponent = React.createClass({
           </MenuItemComponent>
           <MenuItemComponent value="env"
               className={envMenuItemClassSet}>
-            Environment Variables
+            {t("Environment Variables")}
           </MenuItemComponent>
           <MenuItemComponent value="labels"
               className={labelsMenuItemClassSet}>
-            Labels
+            {t("Labels")}
           </MenuItemComponent>
           <MenuItemComponent value="health"
               className={healthMenuItemClassSet}>
-            Health Checks
+            {t("Health Checks")}
           </MenuItemComponent>
           <MenuItemComponent value="volumes"
               className={volumesMenuItemClassSet}>
-            Volumes
+            {t("Volumes")}
           </MenuItemComponent>
           <MenuItemComponent value="optional"
               className={optionalMenuItemClassSet}>
-            Optional
+            {t("Optional")}
           </MenuItemComponent>
         </MenuComponent>
         <ContentComponent active={state.activeSection}
@@ -318,7 +320,7 @@ var AppConfigEditFormComponent = React.createClass({
             <FormGroupComponent errorMessage={this.getErrorMessage("appId")}
                 fieldId="appId"
                 value={state.fields.appId}
-                label="ID"
+                label={t("ID")}
                 onChange={this.handleFieldUpdate}>
               <input ref="appId"/>
             </FormGroupComponent>
@@ -326,14 +328,14 @@ var AppConfigEditFormComponent = React.createClass({
               <div className="col-sm-3">
                 <FormGroupComponent errorMessage={this.getErrorMessage("cpus")}
                   fieldId="cpus"
-                  label="CPUs"
+                  label={t("CPUs")}
                   value={state.fields.cpus}
                   onChange={this.handleFieldUpdate}>
                   <input min="0" step="any" type="number"/>
                 </FormGroupComponent>
               </div>
               <div className="col-sm-3">
-                <FormGroupComponent fieldId="mem" label="Memory (MiB)"
+                <FormGroupComponent fieldId="mem" label={t("Memory (MiB)")}
                   errorMessage={this.getErrorMessage("mem")}
                   value={state.fields.mem}
                   onChange={this.handleFieldUpdate}>
@@ -341,7 +343,7 @@ var AppConfigEditFormComponent = React.createClass({
                 </FormGroupComponent>
               </div>
               <div className="col-sm-3">
-                <FormGroupComponent fieldId="disk" label="Disk Space (MiB)"
+                <FormGroupComponent fieldId="disk" label={t("Disk Space (MiB)")}
                   errorMessage={this.getErrorMessage("disk")}
                   value={state.fields.disk}
                   onChange={this.handleFieldUpdate}>
@@ -349,7 +351,7 @@ var AppConfigEditFormComponent = React.createClass({
                 </FormGroupComponent>
               </div>
               <div className="col-sm-3">
-                <FormGroupComponent fieldId="instances" label="Instances"
+                <FormGroupComponent fieldId="instances" label={t("Instances")}
                   errorMessage={this.getErrorMessage("instances")}
                   value={state.fields.instances}
                   onChange={this.handleFieldUpdate}>
@@ -359,8 +361,8 @@ var AppConfigEditFormComponent = React.createClass({
             </div>
             <FormGroupComponent errorMessage={this.getErrorMessage("cmd")}
               fieldId="cmd"
-              label="Command"
-              help="May be left blank if a container image is supplied"
+              label={t("Command")}
+              help={t("May be left blank if a container image is supplied")}
               value={state.fields.cmd}
               onChange={this.handleFieldUpdate}>
               <textarea style={{resize: "vertical"}} rows="3"/>

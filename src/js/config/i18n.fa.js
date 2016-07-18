@@ -25,6 +25,76 @@ var dict = {
   "please wait while applications are being retrieved":
   "لطفا تا دریافت لیست نرم افزارها شکیبا باشید",
   "no applications created": "نرم افزاری ساخته نشده است",
+  "create group": "ساخت گروه جدید",
+  "name": "نام",
+  "cpu": "CPU",
+  "cpus": "تعداد CPU ها",
+  "memory": "حافظه",
+  "running instances": "نمونه های در حال اجرا",
+  "there was a problem with your configuration":
+  "مشکلی در تنظیمات شما وجود دارد",
+  "edit application": "ویرایش نرم افزار کاربردی",
+  "new application": "نرم افزار کاربردی جدید",
+  "json mode": "حالت JSON",
+  "cancel": "لغو",
+  "id": "شناسه",
+  "memory (mib)": "حافظه (مگابایت)",
+  "disk space (mib)": "فضای دیسک (مگابایت)",
+  "instances": "تعداد نمونه ها",
+  "command": "دستور",
+  "may be left blank if a container image is supplied":
+  "در صورت استفاده از container خالی گذاشته شود",
+  "general": "عمومی",
+  "docker container": "کانتینر های داکر",
+  "ports": "پورت ها",
+  "environment variables": "متغیر های محیطی",
+  "labels": "برچسب ها",
+  "health checks": "آزمایش های سلامتی",
+  "optional": "اختیاری",
+  "ports & service discovery": "پورت ها و کاوش یرویس",
+  "you can configure your docker volumes":
+  "شنل نی توانید تنظیمات volume های داکر را در",
+  "in the volumes section": "قسمت Volume ها انجام دهید",
+  "you can configure your docker ports":
+  "شما می توانید تنظیمات پورت های داکر را در ",
+  "in the ports section": "پورت ها انجام دهید",
+  "key": "کلید",
+  "value": "ارزش",
+  "network": "شبکه",
+  "host": "بر روی هاست",
+  "bridged": "به صورت پل شده",
+  "force pull image on every launch": "در هر اجرا ایمیج را دریافت کن",
+  "extend runtime privileges": "سطوح دسترسی را در زمان اجرا گسترش بده",
+  "image": "ایمیج",
+  "parameters": "پارامتر ها",
+  "read more": "بیشتر بخوانید",
+  "enter the port you want to assign to your vip":
+  "پورتی ره که می خواهید به IP مجازی اضافه کنید وارد کنید",
+  "container port": "پورت کانتینر",
+  "port": "پورت",
+  "for more advanced port configuration options, including service ports, use":
+  "برای تنظیمات پیشرفته تر و پورت سرویس ها از لینک مقابل استفاده کنید",
+  "protocol": "پروتکل",
+  "configure your application to listen to":
+  "نرم افزار خود را برای اتصال به پورت ",
+  "configure your docker container to listen to":
+  "کانتینر خود را برای اتصال به پورت ",
+  "which will be assigned dynamically.":
+  " تنظیم کنید. که بصورت داینامیک نسبت داده می شود.",
+  "health check ${val}": "آزمایش سلامتی - ${val}",
+  "path": "مسیر",
+  "example${ex}": "مثال${ex}",
+  "interval": "دوره",
+  "seconds": "ثانیه",
+  "timeout": "تایم اوت",
+  "port index": "اندیس پورت",
+  "port number": "شماره پورت",
+  "port type": "نوع پورت",
+  "ignore http informational status codes 100 to 199.":
+  "کد وضعیت ۱۰۰ تا ۱۹۹ پروتکل HTTP را نادیده بگیر",
+  "add another health check": "آزمایش دیگری اضافه کنید",
+  "grace period": "دوره تائید",
+  "max. consecutive failures": "ماکسیمم تعداد شکست متوالی",
 };
 
 export default dict;

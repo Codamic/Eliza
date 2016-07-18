@@ -8,6 +8,8 @@ import HealthCheckPortTypes from "../constants/HealthCheckPortTypes";
 
 import healthChecksRowScheme from "../stores/schemes/healthChecksRowScheme";
 
+import t from "../config/i18n";
+
 const numberInputAttributes = {
   min: 0,
   step: 1,
@@ -92,7 +94,9 @@ var HealthChecksComponent = React.createClass({
       <div key={row.consecutiveKey} className={rowClassSet}>
         <button type="button" className="close"
           aria-hidden="true" onClick={handleRemoveRow}>&ndash;</button>
-        <h4>Health Check {i + 1} - {row.protocol}</h4>
+        <h4>
+          {t("Health Check ${val}", {val: `${i + 1} - ${row.protocol}`})}
+        </h4>
         <fieldset onChange={handleChange}>
           <div className="row">
             <div className="col-sm-3">
@@ -101,7 +105,7 @@ var HealthChecksComponent = React.createClass({
                     getErrorMessage(`${fieldsetId}.${i}.protocol`)
                   }
                   fieldId={`${fieldsetId}.${i}.protocol`}
-                  label="Protocol"
+                  label={t("Protocol")}
                   value={row.protocol}>
                 <select defaultValue={row.protocol} ref={`protocol${i}`}>
                   <option value={HealthCheckProtocols.COMMAND}>COMMAND</option>
@@ -118,8 +122,8 @@ var HealthChecksComponent = React.createClass({
                     getErrorMessage(`${fieldsetId}.${i}.path`)
                   }
                   fieldId={`${fieldsetId}.${i}.path`}
-                  label="Path"
-                  help={`Example: "/path/to/health".`}
+                  label={t("Path")}
+                  help={t("Example${ex}", {ex: `: "/path/to/health".`})}
                   value={row.path}>
                 <input ref={`path${i}`} />
               </FormGroupComponent>
@@ -132,8 +136,9 @@ var HealthChecksComponent = React.createClass({
                     getErrorMessage(`${fieldsetId}.${i}.command`)
                   }
                   fieldId={`${fieldsetId}.${i}.command`}
-                  label="Command"
-                  help={`Example: "curl -f -X GET http://$HOST:$PORT0/health"`}
+                  label={t("Command")}
+                  help={t("Example${ex}",
+                       {ex: `: "curl -f -X GET http://$HOST:$PORT0/health"`})}
                   value={row.command}>
                 <input ref={`command${i}`} />
               </FormGroupComponent>
@@ -146,8 +151,8 @@ var HealthChecksComponent = React.createClass({
                     getErrorMessage(`${fieldsetId}.${i}.gracePeriodSeconds`)
                   }
                   fieldId={`${fieldsetId}.${i}.gracePeriodSeconds`}
-                  label="Grace Period"
-                  help="seconds"
+                  label={t("Grace Period")}
+                  help={t("seconds")}
                   value={row.gracePeriodSeconds}>
                 <input ref={`gracePeriodSeconds${i}`}
                   {...numberInputAttributes} />
@@ -159,8 +164,8 @@ var HealthChecksComponent = React.createClass({
                     getErrorMessage(`${fieldsetId}.${i}.intervalSeconds`)
                   }
                   fieldId={`${fieldsetId}.${i}.intervalSeconds`}
-                  label="Interval"
-                  help="seconds"
+                  label={t("Interval")}
+                  help={t("seconds")}
                   value={row.intervalSeconds}>
                 <input ref={`intervalSeconds${i}`} {...numberInputAttributes} />
               </FormGroupComponent>
@@ -171,8 +176,8 @@ var HealthChecksComponent = React.createClass({
                     getErrorMessage(`${fieldsetId}.${i}.timeoutSeconds`)
                   }
                   fieldId={`${fieldsetId}.${i}.timeoutSeconds`}
-                  label="Timeout"
-                  help="seconds"
+                  label={t("Timeout")}
+                  help={t("seconds")}
                   value={row.timeoutSeconds}>
                 <input ref={`timeoutSeconds${i}`} {...numberInputAttributes} />
               </FormGroupComponent>
@@ -185,7 +190,7 @@ var HealthChecksComponent = React.createClass({
                     getErrorMessage(`${fieldsetId}.${i}.maxConsecutiveFailures`)
                   }
                   fieldId={`${fieldsetId}.${i}.maxConsecutiveFailures`}
-                  label="Max. Consecutive Failures"
+                  label={t("Max. Consecutive Failures")}
                   value={row.maxConsecutiveFailures}>
                 <input ref={`maxConsecutiveFailures${i}`}
                   {...numberInputAttributes} />
@@ -197,7 +202,7 @@ var HealthChecksComponent = React.createClass({
                     getErrorMessage(`${fieldsetId}.${i}.portIndex`)
                   }
                   fieldId={`${fieldsetId}.${i}.portIndex`}
-                  label="Port Index"
+                  label={t("Port Index")}
                   value={row.portIndex || 0}>
                 <input ref={`portIndex${i}`} {...numberInputAttributes} />
               </FormGroupComponent>
@@ -208,7 +213,7 @@ var HealthChecksComponent = React.createClass({
                       getErrorMessage(`${fieldsetId}.${i}.port`)
                     }
                     fieldId={`${fieldsetId}.${i}.port`}
-                    label="Port Number"
+                    label={t("Port Number")}
                     value={row.port || 0}>
                   <input ref={`port${i}`} {...numberInputAttributes} />
               </FormGroupComponent>
@@ -219,14 +224,14 @@ var HealthChecksComponent = React.createClass({
                     getErrorMessage(`${fieldsetId}.${i}.portType`)
                   }
                   fieldId={`${fieldsetId}.${i}.portType`}
-                  label="Port Type"
+                  label={t("Port Type")}
                   value={row.portType}>
                 <select defaultValue={row.portType} ref={`portType${i}`}>
                   <option value={HealthCheckPortTypes.PORT_INDEX}>
-                    Port Index
+                    {t("Port Index")}
                   </option>
                   <option value={HealthCheckPortTypes.PORT_NUMBER}>
-                    Port Number
+                    {t("Port Number")}
                   </option>
                 </select>
               </FormGroupComponent>
@@ -239,7 +244,8 @@ var HealthChecksComponent = React.createClass({
                     `${fieldsetId}.${i}.ignoreHttp1xx`
                     )}
                   fieldId={`${fieldsetId}.${i}.ignoreHttp1xx`}
-                  label="Ignore HTTP informational status codes 100 to 199."
+                  label={t("Ignore HTTP informational " +
+                           "status codes 100 to 199.")}
                   value={row.ignoreHttp1xx}>
                 <input ref={`ignoreHttp1xx${i}`} type="checkbox" />
               </FormGroupComponent>
@@ -256,7 +262,7 @@ var HealthChecksComponent = React.createClass({
               <button className="btn btn-default btn-inverse"
                   type="button"
                   onClick={handleAddRow}>
-                Add Another Health Check
+                {t("Add Another Health Check")}
               </button>
             </div>
           </div>

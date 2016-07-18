@@ -12,6 +12,8 @@ import ExternalLinks from "../constants/ExternalLinks";
 
 import Util from "../helpers/Util";
 
+import t from "../config/i18n";
+
 const fieldsetId = "dockerPortMappings";
 
 function isTooComplexStructure(fields, hasVIP = false) {
@@ -116,14 +118,16 @@ var OptionalDockerPortMappingsComponent = React.createClass({
     // TODO
     var fieldTooltipMessage = (
       <span>
-        Enter the port you want to assign to your
-        VIP. <a href={ExternalLinks.PORTS} target="_blank">Read more</a>.
+        {t("Enter the port you want to assign to your VIP")}.
+        <a href={ExternalLinks.PORTS} target="_blank">
+          {t("Read more")}
+        </a>.
       </span>
     );
 
     var fieldLabel = (
       <span>
-        Container Port
+        {t("Container Port")}
         <TooltipComponent className="right"
             message={fieldTooltipMessage}>
           <i className="icon icon-xs help" />
@@ -139,7 +143,7 @@ var OptionalDockerPortMappingsComponent = React.createClass({
       <div className={className}>
         <FormGroupComponent
             fieldId={`${fieldsetId}.${i}.containerPort`}
-            label={fieldLabel}
+            label={t(fieldLabel)}
             value={row.containerPort}>
           <input ref={`containerPort${i}`} {...PortInputAttributes} />
         </FormGroupComponent>
@@ -204,7 +208,7 @@ var OptionalDockerPortMappingsComponent = React.createClass({
                   getErrorMessage(`${fieldsetId}.${i}.protocol`)
                 }
                 fieldId={`${fieldsetId}.${i}.protocol`}
-                label="Protocol"
+                label={t("Protocol")}
                 value={row.protocol}>
               <select defaultValue={row.protocol} ref={`protocol${i}`}>
                 <option value={ContainerConstants.PORTMAPPINGS.PROTOCOL.TCP}>
@@ -219,7 +223,7 @@ var OptionalDockerPortMappingsComponent = React.createClass({
           <div className={nameFieldClassName}>
             <FormGroupComponent
                 fieldId={`${fieldsetId}.${i}.name`}
-                label="Name"
+                label={t("Name")}
                 value={row.name}>
               <input ref={`name${i}`} />
             </FormGroupComponent>
@@ -250,10 +254,11 @@ var OptionalDockerPortMappingsComponent = React.createClass({
   getSwitchToJSONModeLink: function () {
     return (
       <p>
-        For more advanced port configuration options, including service ports,
-        use <a className="json-link clickable"
+        {t("For more advanced port configuration options, including service" +
+           "ports, use")}
+        <a className="json-link clickable"
         onClick={this.props.handleModeToggle}>
-        JSON mode
+          {t("JSON mode")}
       </a>.
       </p>
     );

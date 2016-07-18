@@ -8,6 +8,8 @@ import dockerRowSchemes from "../stores/schemes/dockerRowSchemes";
 import FormActions from "../actions/FormActions";
 import FormGroupComponent from "../components/FormGroupComponent";
 
+import t from "../config/i18n";
+
 var ContainerSettingsComponent = React.createClass({
   displayName: "ContainerSettingsComponent",
 
@@ -75,7 +77,7 @@ var ContainerSettingsComponent = React.createClass({
             <FormGroupComponent
                 errorMessage={getErrorMessage(`${fieldsetId}.${i}.key`)}
                 fieldId={`${fieldsetId}.${i}.key`}
-                label="Key"
+                label={t("Key")}
                 value={row.key}>
               <input ref={`key${i}`} />
             </FormGroupComponent>
@@ -84,7 +86,7 @@ var ContainerSettingsComponent = React.createClass({
             <FormGroupComponent
                 errorMessage={getErrorMessage(`${fieldsetId}.${i}.value`)}
                 fieldId={`${fieldsetId}.${i}.value`}
-                label="Value"
+                label={t("Value")}
                 value={row.value}>
               <input ref={`value${i}`} />
             </FormGroupComponent>
@@ -123,7 +125,7 @@ var ContainerSettingsComponent = React.createClass({
             <FormGroupComponent
                 errorMessage={props.getErrorMessage(fieldIds.dockerImage)}
                 fieldId={fieldIds.dockerImage}
-                label="Image"
+                label={t("Image")}
                 value={props.fields[fieldIds.dockerImage]}
                 onChange={this.handleSingleFieldUpdate}>
               <input />
@@ -133,15 +135,15 @@ var ContainerSettingsComponent = React.createClass({
             <FormGroupComponent
                 errorMessage={props.getErrorMessage(fieldIds.dockerNetwork)}
                 fieldId={fieldIds.dockerNetwork}
-                label="Network"
+                label={t("Network")}
                 value={props.fields[fieldIds.dockerNetwork]}
                 onChange={this.handleSingleFieldUpdate}>
               <select defaultValue="">
                 <option value={ContainerConstants.NETWORK.HOST}>
-                  Host
+                  {t("Host")}
                 </option>
                 <option value={ContainerConstants.NETWORK.BRIDGE}>
-                  Bridged
+                  {t("Bridged")}
                 </option>
               </select>
             </FormGroupComponent>
@@ -153,7 +155,7 @@ var ContainerSettingsComponent = React.createClass({
                 errorMessage=
                   {props.getErrorMessage(fieldIds.dockerForcePullImage)}
                 fieldId={fieldIds.dockerForcePullImage}
-                label="Force pull image on every launch"
+                label={t("Force pull image on every launch")}
                 value={props.fields[fieldIds.dockerForcePullImage]}
                 onChange={this.handleSingleFieldUpdate}>
               <input type="checkbox" />
@@ -163,26 +165,28 @@ var ContainerSettingsComponent = React.createClass({
             <FormGroupComponent className="checkbox-form-group"
                 errorMessage={props.getErrorMessage(fieldIds.dockerPrivileged)}
                 fieldId={fieldIds.dockerPrivileged}
-                label="Extend runtime privileges"
+                label={t("Extend runtime privileges")}
                 value={props.fields[fieldIds.dockerPrivileged]}
                 onChange={this.handleSingleFieldUpdate}>
               <input type="checkbox" />
             </FormGroupComponent>
           </div>
         </div>
-        <h4>Parameters</h4>
+        <h4>
+          {t("Parameters")}
+        </h4>
         <div className="duplicable-list">{this.getParametersRows()}</div>
         <div>
-          You can configure your Docker
-          volumes <a onClick={this.props.openVolumes}>
-            in the Volumes section
+          {t("You can configure your Docker volumes")}
+          <a onClick={this.props.openVolumes}>
+            {t("in the Volumes section")}
           </a>.
         </div>
         <div>
-          You can configure your Docker
-          ports <a onClick={this.props.openPorts}>
-          in the Ports section
-        </a>.
+          {t("You can configure your Docker ports")}
+          <a onClick={this.props.openPorts}>
+            {t("in the Ports section")}
+          </a>.
         </div>
       </div>
     );

@@ -530,25 +530,25 @@ var AppListComponent = React.createClass({
               <th className={idClassSet} colSpan="2">
                 <span onClick={this.sortBy.bind(null, "id")}
                     className={headerClassSet}>
-                  Name {this.getCaret("id")}
+                  {t("Name")} {this.getCaret("id")}
                 </span>
               </th>
               <th className={cpuClassSet}>
                 <span onClick={this.sortBy.bind(null, "totalCpus")}
                     className={headerClassSet}>
-                  {this.getCaret("totalCpus")} CPU
+                  {this.getCaret("totalCpus")} {t("CPU")}
                 </span>
               </th>
               <th className={memClassSet}>
                 <span onClick={this.sortBy.bind(null, "totalMem")}
                     className={headerClassSet}>
-                  {this.getCaret("totalMem")} Memory
+                  {this.getCaret("totalMem")} {t("Memory")}
                 </span>
               </th>
               <th className={statusClassSet}>
                 <div onClick={this.sortBy.bind(null, "status")}
                     className={headerClassSet}>
-                  <div>Status</div>
+                  <div>{t("Status")}</div>
                   <TooltipComponent message={statusTooltipMessage}>
                     <i className="icon icon-xs help" />
                   </TooltipComponent>
@@ -558,13 +558,13 @@ var AppListComponent = React.createClass({
               <th className={tasksClassSet}>
                 <span onClick={this.sortBy.bind(null, "tasksRunning")}
                     className={headerClassSet}>
-                  {this.getCaret("tasksRunning")} Running Instances
+                  {this.getCaret("tasksRunning")} {t("Running Instances")}
                 </span>
               </th>
               <th className={healthClassSet} colSpan="2">
                 <div onClick={this.sortBy.bind(null, "healthWeight")}
                     className={headerClassSet}>
-                  <div>Health</div>
+                  <div>{t("Health")}</div>
                   <TooltipComponent message={healthTooltipMessage}>
                     <i className="icon icon-xs help" />
                   </TooltipComponent>

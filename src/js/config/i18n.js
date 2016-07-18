@@ -17,8 +17,10 @@ function t(key, options = {}) {
     return key + "+";
   }
 
-  _.each(options, function (x) {
-    str = str.replace("${" + x + "}", options[x]);
+  _.each(options, function (x, v) {
+    console.log(x);
+    console.log(v);
+    str = str.replace("${" + v + "}", x);
   });
 
   return str;

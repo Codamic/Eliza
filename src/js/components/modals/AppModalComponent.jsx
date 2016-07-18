@@ -17,6 +17,8 @@ import InfoEvents from "../../events/InfoEvents";
 import InfoStore from "../../stores/InfoStore";
 import ModalComponent from "../../components/ModalComponent";
 
+import t from "../../config/i18n";
+
 var AppModalComponent = React.createClass({
   displayName: "AppModalComponent",
 
@@ -163,7 +165,7 @@ var AppModalComponent = React.createClass({
     return (
       <div className="text-danger app-error-block">
         <i className="icon icon-mini warning-danger" />
-        There was a problem with your configuration
+        {t("There was a problem with your configuration")}
         <ul>
           {error}
         </ul>
@@ -183,7 +185,7 @@ var AppModalComponent = React.createClass({
 
     return (
       <button type="submit" className={classSet}>
-        {submitButtonText}
+        {t(submitButtonText)}
       </button>
     );
   },
@@ -230,8 +232,8 @@ var AppModalComponent = React.createClass({
     var state = this.state;
 
     var modalTitle = props.editMode
-      ? "Edit Application"
-      : "New Application";
+      ? t("Edit Application")
+      : t("New Application");
 
     var features = state.info["marathon_config"] != null
       ? state.info["marathon_config"].features
@@ -255,7 +257,7 @@ var AppModalComponent = React.createClass({
       <button className="btn btn-link"
           type="button"
           onClick={this.destroy}>
-        Cancel
+        {t("Cancel")}
       </button>
     );
 
@@ -272,7 +274,7 @@ var AppModalComponent = React.createClass({
             <input id="json-toggle" type="checkbox" name="checkbox"
               checked={state.jsonMode}
               className="toggle" onChange={this.onJSONToggleChange} />
-            <label htmlFor="json-toggle">JSON Mode</label>
+            <label htmlFor="json-toggle">{t("JSON Mode")}</label>
             <h2 className="modal-title">
               {modalTitle}
             </h2>

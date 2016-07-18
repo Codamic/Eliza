@@ -12,6 +12,8 @@ import ExternalLinks from "../constants/ExternalLinks";
 
 import Util from "../helpers/Util";
 
+import t from "../config/i18n";
+
 const fieldsetId = "portDefinitions";
 
 function isTooComplexStructure(fields, hasVIP = false) {
@@ -102,12 +104,14 @@ var OptionalPortsAndServiceDiscoveryComponent = React.createClass({
       .join(", ")
       .replace(/(.*), (.*)$/, "$1 and $2");
 
-    var message = "Configure your application to listen to" +
-      ` ${portIdentifiers} which will be assigned dynamically.`;
+    var message = t("Configure your application to listen to") +
+                  ` ${portIdentifiers}` +
+                  t("which will be assigned dynamically.");
 
     if (props.containerType === ContainerConstants.TYPE.DOCKER) {
-      message = "Configure your Docker container to listen to" +
-        ` ${portIdentifiers} which will be assigned dynamically.`;
+      message = t("Configure your Docker container to listen to") +
+                  ` ${portIdentifiers}` +
+                  t("which will be assigned dynamically.");
     }
 
     return (
@@ -124,14 +128,16 @@ var OptionalPortsAndServiceDiscoveryComponent = React.createClass({
     // TODO
     var fieldTooltipMessage = (
       <span>
-        Enter the port you want to assign to your
-        VIP. <a href={ExternalLinks.PORTS} target="_blank">Read more</a>.
+        {t("Enter the port you want to assign to your VIP.")}
+        <a href={ExternalLinks.PORTS} target="_blank">
+          {t("Read more")}
+        </a>.
       </span>
     );
 
     var fieldLabel = (
       <span>
-        Port
+       {t("Port")}
         <TooltipComponent className="right"
             message={fieldTooltipMessage}>
           <i className="icon icon-xs help" />
@@ -177,7 +183,7 @@ var OptionalPortsAndServiceDiscoveryComponent = React.createClass({
       <div className="col-sm-5">
         <FormGroupComponent
             fieldId={`${fieldsetId}.${i}.vip`}
-            label="VIP"
+            label={t("VIP")}
             value={row.vip}>
           <input ref={`vip${i}`} />
         </FormGroupComponent>
@@ -225,7 +231,7 @@ var OptionalPortsAndServiceDiscoveryComponent = React.createClass({
                   getErrorMessage(`${fieldsetId}.${i}.protocol`)
                 }
                 fieldId={`${fieldsetId}.${i}.protocol`}
-                label="Protocol"
+                label={t("Protocol")}
                 value={row.protocol}>
               <select defaultValue={row.protocol} ref={`protocol${i}`}>
                 <option value={ContainerConstants.PORTMAPPINGS.PROTOCOL.TCP}>
@@ -240,7 +246,7 @@ var OptionalPortsAndServiceDiscoveryComponent = React.createClass({
           <div className={nameFieldClassName}>
             <FormGroupComponent
                 fieldId={`${fieldsetId}.${i}.name`}
-                label="Name"
+                label={t("Name")}
                 value={row.name}>
               <input ref={`name${i}`} />
             </FormGroupComponent>
@@ -256,10 +262,11 @@ var OptionalPortsAndServiceDiscoveryComponent = React.createClass({
   getSwitchToJSONModeLink: function () {
     return (
       <p>
-        For more advanced port configuration options, including service ports,
-        use <a className="json-link clickable"
-            onClick={this.props.handleModeToggle}>
-          JSON mode
+        {t("For more advanced port configuration options, including service " +
+           "ports, use")}
+        <a className="json-link clickable"
+           onClick={this.props.handleModeToggle}>
+          {t("JSON mode")}
         </a>.
       </p>
     );

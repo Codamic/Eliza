@@ -13,6 +13,8 @@ import tabs from "../constants/tabs";
 
 import QueryParamsMixin from "../mixins/QueryParamsMixin";
 
+import t from "../config/i18n";
+
 var TabPanesComponent = React.createClass({
   displayName: "TabPanesComponent",
 
@@ -117,7 +119,7 @@ var TabPanesComponent = React.createClass({
                         query={newGroupModalQuery}
                         className="btn btn-default create-group"
                         activeClassName="create-group-active">
-                      Create Group
+                      {t("Create Group")}
                     </Link>
                   </li>
                   <li>
@@ -125,7 +127,7 @@ var TabPanesComponent = React.createClass({
                         query={newAppModalQuery}
                         className="btn btn-success create-app"
                         activeClassName="create-app-active">
-                      Create Application
+                     {t("Create Application")}
                     </Link>
                   </li>
                 </ul>

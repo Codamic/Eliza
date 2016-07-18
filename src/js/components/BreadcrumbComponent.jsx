@@ -4,6 +4,8 @@ import {Link} from "react-router";
 
 import PathUtil from "../helpers/PathUtil";
 
+import t from "../config/i18n";
+
 const COLLAPSE_BUFFER = 12;
 const PADDED_ICON_WIDTH = 24; // 16px icon + 8px padding
 const LAST_ITEM_OFFSET = 96; // Difference between scrollWidth and outerWidth
@@ -188,7 +190,7 @@ var BreadcrumbComponent = React.createClass({
     return (
       <li>
         <Link to="app" params={{appId: encodeURIComponent(appId)}}>
-          {name}
+          {t(name)}
         </Link>
       </li>
     );
@@ -257,7 +259,7 @@ var BreadcrumbComponent = React.createClass({
     return (
       <ol className={classSet}>
         <li>
-          <Link to="apps">Applications</Link>
+          <Link to="apps">{t("Applications")}</Link>
         </li>
         {this.getGroupLinks()}
         {this.getAppLink()}
