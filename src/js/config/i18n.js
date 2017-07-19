@@ -18,8 +18,6 @@ function t(key, options = {}) {
   }
 
   _.each(options, function (x, v) {
-    console.log(x);
-    console.log(v);
     str = str.replace("${" + v + "}", x);
   });
 

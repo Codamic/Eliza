@@ -2,7 +2,7 @@
   "name": "eliza",
   "version": "1.2.0",
   "engines": {
-    "node": "5.4.1"
+    "node": "7.2.0"
   },
   "description": "A web UI for Marathon.",
   "main": "dist/main.js",
